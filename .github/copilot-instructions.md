@@ -81,11 +81,15 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
 {
   "meta": {
     "theme": "jsonresume-theme-orbit",
-    "themeVariant": 3  // Valid values: 1-6, defaults to 1
+    "themeVariant": 3,        // Valid values: 1-6, defaults to 1
+    "sectionFocus": "project" // Valid values: "project" or "work", defaults to "work"
   }
 }
 ```
-Invalid themeVariant throws error: `"Invalid themeVariant. Allowed values are 1 to 6"`
+- Invalid themeVariant throws error: `"Invalid themeVariant. Allowed values are 1 to 6"`
+- `sectionFocus`: Controls section order in main content:
+  - `"project"` - Projects section appears before Work Experience
+  - `"work"` (default) - Work Experience appears before Projects
 
 ## File Structure
 ```

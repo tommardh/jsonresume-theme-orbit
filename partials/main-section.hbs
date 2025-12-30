@@ -1,12 +1,18 @@
 {{> summary}}
 
+{{#if (eq meta.sectionFocus 'project')}}
+{{> projects}}
+
 {{> work}}
+{{else}}
+{{> work}}
+
+{{> projects}}
+{{/if}}
 
 {{> volunteer}}
 
 {{> awards }}
-
-{{> projects}}
 
 {{> publications }}
 

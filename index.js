@@ -70,6 +70,10 @@ Handlebars.registerHelper('skillLevel', function(str) {
 	}
 });
 
+Handlebars.registerHelper('eq', function(a, b) {
+	return a === b;
+});
+
 // Resume.json used to have website property in some entries.  This has been renamed to url.
 // However the demo data still uses the website property so we will also support the "wrong" property name.
 // Fix the resume object to use url property
@@ -146,7 +150,8 @@ function render(resume) {
 		resume,
 		meta: {
 			packageName: packageJSON.name,
-			version:  packageJSON.version
+			version:  packageJSON.version,
+			sectionFocus: resume.meta?.sectionFocus || 'work'
 		}
 	});
 }
