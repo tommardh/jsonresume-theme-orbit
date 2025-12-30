@@ -40,7 +40,7 @@ cd jsonresume-theme-orbit
 
 ### Serve theme
 ```
-resume serve
+resume serve --theme .
 ```
 This will use the local version of the theme to render the resume.json
 If there is a local copy of resume.json this will be used.  Otherwise, it will use the default resume.json from [jsonresume.org](https://jsonresume.org/)
