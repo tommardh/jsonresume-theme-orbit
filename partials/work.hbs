@@ -7,16 +7,16 @@
                 <div class="meta">
                     <div class="upper-row">
                         {{#if (eq ../meta.workFocus 'company')}}
-                        <h3 class="job-title">{{name}}</h3>
+                        <h3 class="work-header">{{name}}</h3>
                         {{else}}
-                        <h3 class="job-title">{{position}}</h3>
+                        <h3 class="work-header">{{position}}</h3>
                         {{/if}}
                         <div class="time">{{#if location}}{{location}}, {{/if}}{{year startDate}} - {{year endDate}}</div>
                     </div><!--//upper-row-->
                     {{#if (eq ../meta.workFocus 'company')}}
-                    <div class="company">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{position}}{{#if url}}</a>{{/if}}</div>
+                    <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{position}}{{#if url}}</a>{{/if}}</div>
                     {{else}}
-                    <div class="company">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{name}}{{#if url}}</a>{{/if}}</div>
+                    <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{name}}{{#if url}}</a>{{/if}}</div>
                     {{/if}}
                 </div><!--//meta-->
                 <div class="details">
