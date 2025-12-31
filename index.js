@@ -71,12 +71,10 @@ Handlebars.registerHelper('skillLevel', function(str) {
 });
 
 Handlebars.registerHelper('eq', function(a, b) {
-	console.log(`Comparing ${a} and ${b}`);
 	return a === b;
 });
 
 Handlebars.registerHelper('neq', function(a, b) {
-	console.log(`Comparing ${a} and ${b}`);
 	return a !== b;
 });
 
