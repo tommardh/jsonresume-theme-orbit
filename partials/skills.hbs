@@ -1,6 +1,6 @@
 {{#if resume.skills}}
     <section class="skills-section section">
-        <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+        <h2 class="section-title"><i class="fa fa-rocket"></i>{{#if (eq meta.language 'swe')}}Kompetenser{{else}}Skills &amp; Proficiency{{/if}}</h2>
         <div class="skillset">
             {{#resume.skills}}
                 <div class="item">

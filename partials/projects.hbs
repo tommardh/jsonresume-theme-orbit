@@ -1,6 +1,6 @@
 {{#if resume.projects}}
     <section class="section projects-section">
-        <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
+        <h2 class="section-title"><i class="fa fa-archive"></i>{{#if (eq meta.language 'swe')}}Projekt{{else}}Projects{{/if}}</h2>
         
         {{#resume.projects}}
             <div class="item">

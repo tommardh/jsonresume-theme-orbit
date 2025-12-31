@@ -1,6 +1,6 @@
 {{#if resume.publications}}
     <section class="section experiences-section">
-        <h2 class="section-title"><i class="fa fa-book"></i>Publications</h2>
+        <h2 class="section-title"><i class="fa fa-book"></i>{{#if (eq meta.language 'swe')}}Publikationer{{else}}Publications{{/if}}</h2>
 
         {{#resume.publications}}
             <div class="item">

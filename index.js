@@ -153,7 +153,8 @@ function render(resume) {
 			version:  packageJSON.version,
 			sectionFocus: resume.meta?.sectionFocus || 'work',
 			workFocus: resume.meta?.workFocus || 'role',
-			projectFocus: resume.meta?.projectFocus || 'company'
+			projectFocus: resume.meta?.projectFocus || 'company',
+			language: resume.meta?.language || 'eng'
 		}
 	});
 }

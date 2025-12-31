@@ -1,6 +1,6 @@
 {{#if resume.work}}
     <section class="section experiences-section">
-        <h2 class="section-title"><i class="fa fa-briefcase"></i>Work Experience</h2>
+        <h2 class="section-title"><i class="fa fa-briefcase"></i>{{#if (eq meta.language 'swe')}}Arbetserfarenhet{{else}}Work Experience{{/if}}</h2>
 
         {{#resume.work}}
             <div class="item">

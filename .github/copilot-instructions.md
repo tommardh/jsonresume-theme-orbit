@@ -84,7 +84,8 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
     "themeVariant": 3,         // Valid values: 1-6, defaults to 1
     "sectionFocus": "project",  // Valid values: "project" or "work", defaults to "work"
     "workFocus": "company",     // Valid values: "company" or "role", defaults to "role"
-    "projectFocus": "role"      // Valid values: "role" or "company", defaults to "company"
+    "projectFocus": "role",     // Valid values: "role" or "company", defaults to "company"
+    "language": "swe"           // Valid values: "swe" or "eng", defaults to "eng"
   }
 }
 ```
@@ -98,6 +99,9 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
 - `projectFocus`: Controls display order in project entries:
   - `"role"` - Position/role appears in top row, project name in second row
   - `"company"` (default) - Project name appears in top row, position in second row
+- `language`: Controls language of section headings:
+  - `"swe"` - Swedish headings (Arbetserfarenhet, Projekt, Utbildning, etc.)
+  - `"eng"` (default) - English headings (Work Experience, Projects, Education, etc.)
 
 ## File Structure
 ```

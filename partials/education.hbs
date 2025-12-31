@@ -1,6 +1,6 @@
 {{#if resume.education}}
     <div class="education-container container-block">
-        <h2 class="container-block-title">Education</h2>
+        <h2 class="container-block-title">{{#if (eq meta.language 'swe')}}Utbildning{{else}}Education{{/if}}</h2>
         {{#resume.education}}
             <div class="item">
                 <h4 class="degree">{{award studyType}} in {{area}}</h4>
