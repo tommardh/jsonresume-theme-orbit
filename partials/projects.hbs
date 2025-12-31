@@ -1,13 +1,19 @@
 {{#if resume.projects}}
     <section class="section projects-section">
         <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
-        <!--                    <div class="intro">
-                                <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
-                            </div>--><!--//intro-->
+        
         {{#resume.projects}}
             <div class="item">
-                <span class="project-title"><a href="{{url}}" target="_blank">{{name}}</a></span> -
-                <span class="project-tagline">{{#markdown}}{{description}}{{/markdown}}</span>
+                <div class="meta">
+                    <div class="upper-row">
+                        <h3 class="work-header">{{name}}</h3>
+                        <div class="time">{{#if location}}{{location}}, {{/if}}{{year startDate}} - {{year endDate}}</div>
+                    </div><!--//upper-row-->
+                    <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{position}}{{#if url}}</a>{{/if}}</div>
+                </div><!--//meta-->
+                <div class="details">
+                    {{#markdown}}{{description}}{{/markdown}}
+                </div><!--//details-->
             </div><!--//item-->
         {{/resume.projects}}
     </section><!--//section-->
