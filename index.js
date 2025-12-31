@@ -74,6 +74,10 @@ Handlebars.registerHelper('eq', function(a, b) {
 	return a === b;
 });
 
+Handlebars.registerHelper('gte', function(a, b) {
+	return a >= b;
+});
+
 // Resume.json used to have website property in some entries.  This has been renamed to url.
 // However the demo data still uses the website property so we will also support the "wrong" property name.
 // Fix the resume object to use url property
@@ -154,7 +158,8 @@ function render(resume) {
 			sectionFocus: resume.meta?.sectionFocus || 'work',
 			workFocus: resume.meta?.workFocus || 'role',
 			projectFocus: resume.meta?.projectFocus || 'company',
-			language: resume.meta?.language || 'eng'
+			language: resume.meta?.language || 'eng',
+			certificateRank: resume.meta?.certificateRank !== undefined ? resume.meta.certificateRank : 0
 		}
 	});
 }

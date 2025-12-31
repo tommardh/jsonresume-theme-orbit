@@ -85,7 +85,8 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
     "sectionFocus": "project",  // Valid values: "project" or "work", defaults to "work"
     "workFocus": "company",     // Valid values: "company" or "role", defaults to "role"
     "projectFocus": "role",     // Valid values: "role" or "company", defaults to "company"
-    "language": "swe"           // Valid values: "swe" or "eng", defaults to "eng"
+    "language": "swe",          // Valid values: "swe" or "eng", defaults to "eng"
+    "certificateRank": 3        // Numeric value, 0 shows all certificates, >0 filters by level
   }
 }
 ```
@@ -102,6 +103,9 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
 - `language`: Controls language of section headings:
   - `"swe"` - Swedish headings (Arbetserfarenhet, Projekt, Utbildning, etc.)
   - `"eng"` (default) - English headings (Work Experience, Projects, Education, etc.)
+- `certificateRank`: Filters certificates by level:
+  - `0` (default) - Shows all certificates
+  - `>0` - Shows only certificates with `level` property >= certificateRank
 
 ## File Structure
 ```
