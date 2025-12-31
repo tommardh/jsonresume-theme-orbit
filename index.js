@@ -152,7 +152,8 @@ function render(resume) {
 			packageName: packageJSON.name,
 			version:  packageJSON.version,
 			sectionFocus: resume.meta?.sectionFocus || 'work',
-			workFocus: resume.meta?.workFocus || 'role'
+			workFocus: resume.meta?.workFocus || 'role',
+			projectFocus: resume.meta?.projectFocus || 'company'
 		}
 	});
 }

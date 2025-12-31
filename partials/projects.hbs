@@ -6,10 +6,18 @@
             <div class="item">
                 <div class="meta">
                     <div class="upper-row">
+                        {{#if (eq ../meta.projectFocus 'role')}}
+                        <h3 class="work-header">{{position}}</h3>
+                        {{else}}
                         <h3 class="work-header">{{name}}</h3>
+                        {{/if}}
                         <div class="time">{{#if location}}{{location}}, {{/if}}{{year startDate}} - {{year endDate}}</div>
                     </div><!--//upper-row-->
+                    {{#if (eq ../meta.projectFocus 'role')}}
+                    <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{name}}{{#if url}}</a>{{/if}}</div>
+                    {{else}}
                     <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{position}}{{#if url}}</a>{{/if}}</div>
+                    {{/if}}
                 </div><!--//meta-->
                 <div class="details">
                     {{#markdown}}{{description}}{{/markdown}}
