@@ -82,7 +82,8 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
   "meta": {
     "theme": "jsonresume-theme-orbit",
     "themeVariant": 3,        // Valid values: 1-6, defaults to 1
-    "sectionFocus": "project" // Valid values: "project" or "work", defaults to "work"
+    "sectionFocus": "project", // Valid values: "project" or "work", defaults to "work"
+    "workFocus": "company"     // Valid values: "company" or "role", defaults to "role"
   }
 }
 ```
@@ -90,6 +91,9 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
 - `sectionFocus`: Controls section order in main content:
   - `"project"` - Projects section appears before Work Experience
   - `"work"` (default) - Work Experience appears before Projects
+- `workFocus`: Controls display order in work experience entries:
+  - `"company"` - Company name appears in top row, job title in second row
+  - `"role"` (default) - Job title appears in top row, company in second row
 
 ## File Structure
 ```
