@@ -2,7 +2,11 @@
     <section class="section summary-section">
         <h2 class="section-title"><i class="fa fa-user"></i>{{#if (eq meta.language 'swe')}}Personlig sammanfattning{{else}}Personal Summary{{/if}}</h2>
         <div class="summary">
+            {{#if (eq meta.summaryLevel 'description')}}
+            <p>{{#markdown}}{{resume.basics.description}}{{/markdown}}</p>
+            {{else}}
             <p>{{#markdown}}{{resume.basics.summary}}{{/markdown}}</p>
+            {{/if}}
         </div><!--//summary-->
     </section><!--//section-->
 {{/if}}

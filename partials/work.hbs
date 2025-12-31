@@ -19,9 +19,15 @@
                     <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{name}}{{#if url}}</a>{{/if}}</div>
                     {{/if}}
                 </div><!--//meta-->
+                 {{#if (neq ../meta.workLevel 'none')}}
                 <div class="details">
+                    {{#if (eq ../meta.workLevel 'description')}}
+                    {{#markdown}}{{description}}{{/markdown}}
+                    {{else}}
                     {{#markdown}}{{summary}}{{/markdown}}
+                    {{/if}}
                 </div><!--//details-->
+                {{/if}}
             </div><!--//item-->
         {{/resume.work}}
     </section><!--//section-->

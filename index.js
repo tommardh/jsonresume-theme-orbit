@@ -71,8 +71,15 @@ Handlebars.registerHelper('skillLevel', function(str) {
 });
 
 Handlebars.registerHelper('eq', function(a, b) {
+	console.log(`Comparing ${a} and ${b}`);
 	return a === b;
 });
+
+Handlebars.registerHelper('neq', function(a, b) {
+	console.log(`Comparing ${a} and ${b}`);
+	return a !== b;
+});
+
 
 Handlebars.registerHelper('gte', function(a, b) {
 	return a >= b;
@@ -159,7 +166,10 @@ function render(resume) {
 			workFocus: resume.meta?.workFocus || 'role',
 			projectFocus: resume.meta?.projectFocus || 'company',
 			language: resume.meta?.language || 'eng',
-			certificateRank: resume.meta?.certificateRank !== undefined ? resume.meta.certificateRank : 0
+			certificateRank: resume.meta?.certificateRank !== undefined ? resume.meta.certificateRank : 0,
+			summaryLevel: resume.meta?.summaryLevel || 'summary',
+			workLevel: resume.meta?.workLevel || 'summary',
+			projectLevel: resume.meta?.projectLevel || 'description'
 		}
 	});
 }

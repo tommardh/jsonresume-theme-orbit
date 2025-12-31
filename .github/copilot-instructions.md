@@ -81,12 +81,16 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
 {
   "meta": {
     "theme": "jsonresume-theme-orbit",
-    "themeVariant": 3,         // Valid values: 1-6, defaults to 1
-    "sectionFocus": "project",  // Valid values: "project" or "work", defaults to "work"
-    "workFocus": "company",     // Valid values: "company" or "role", defaults to "role"
-    "projectFocus": "role",     // Valid values: "role" or "company", defaults to "company"
-    "language": "swe",          // Valid values: "swe" or "eng", defaults to "eng"
-    "certificateRank": 3        // Numeric value, 0 shows all certificates, >0 filters by level
+    "themeVariant": 3,             // Valid values: 1-6, defaults to 1
+    "sectionFocus": "project",     // Valid values: "project" or "work", defaults to "work"
+    "workFocus": "company",        // Valid values: "company" or "role", defaults to "role"
+    "projectFocus": "role",        // Valid values: "role" or "company", defaults to "company"
+    "language": "swe",             // Valid values: "swe" or "eng", defaults to "eng"
+    "certificateRank": 3,          // Numeric value, 0 shows all certificates, >0 filters by level
+    "summaryLevel": "description", // Valid values: "summary" or "description", defaults to "summary"
+    "workLevel": "description",    // Valid values: "summary", "none" or "description", defaults to "summary"
+    "projectLevel": "description"  // Valid values: "summary", "none" or "description", defaults to "summary"
+
   }
 }
 ```
@@ -106,6 +110,17 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
 - `certificateRank`: Filters certificates by level:
   - `0` (default) - Shows all certificates
   - `>0` - Shows only certificates with `level` property >= certificateRank
+- `summaryLevel`: Controls which detail field to display in personal summary:
+  - `"summary"` (default) - Uses `summary` field
+  - `"description"` - Uses `description` field
+- `workLevel`: Controls which detail field to display in work experience entries:
+  - `"summary"` (default) - Uses `summary` field
+  - `"description"` - Uses `description` field
+  - `"none"` - Hides detail section entirely
+- `projectLevel`: Controls which detail field to display in project entries:
+  - `"summary"` - Uses `summary` field
+  - `"description"` (default) - Uses `description` field
+  - `"none"` - Hides detail section entirely
 
 ## File Structure
 ```
