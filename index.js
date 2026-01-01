@@ -167,7 +167,9 @@ function render(resume) {
 			certificateRank: resume.meta?.certificateRank !== undefined ? resume.meta.certificateRank : 0,
 			summaryLevel: resume.meta?.summaryLevel || 'summary',
 			workLevel: resume.meta?.workLevel || 'summary',
-			projectLevel: resume.meta?.projectLevel || 'description'
+		projectLevel: resume.meta?.projectLevel || 'description',
+		projectHighlights: resume.meta?.projectHighlights || false,
+		workHighlights: resume.meta?.workHighlights || false
 		}
 	});
 }

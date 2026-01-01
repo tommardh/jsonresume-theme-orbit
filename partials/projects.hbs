@@ -28,6 +28,17 @@
                     {{/if}}
                 </div><!--//details-->
                 {{/if}}
+                {{#if ../meta.projectHighlights}}
+                {{#if highlights}}
+                <p>
+                <ul>
+                    {{#highlights}}
+                    <li>{{this}}</li>
+                    {{/highlights}}
+                </ul>
+                </p>
+                {{/if}}
+                {{/if}}
             </div><!--//item-->
         {{/resume.projects}}
     </section><!--//section-->

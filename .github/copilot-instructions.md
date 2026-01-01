@@ -89,7 +89,9 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
     "certificateRank": 3,          // Numeric value, 0 shows all certificates, >0 filters by level
     "summaryLevel": "description", // Valid values: "summary" or "description", defaults to "summary"
     "workLevel": "description",    // Valid values: "summary", "none" or "description", defaults to "summary"
-    "projectLevel": "description"  // Valid values: "summary", "none" or "description", defaults to "summary"
+    "projectLevel": "description", // Valid values: "summary", "none" or "description", defaults to "summary"
+    "projectHighlights": true,     // Boolean, show highlights list in projects, defaults to false
+    "workHighlights": true         // Boolean, show highlights list in work, defaults to false
 
   }
 }

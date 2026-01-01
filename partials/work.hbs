@@ -28,7 +28,17 @@
                     {{/if}}
                 </div><!--//details-->
                 {{/if}}
-            </div><!--//item-->
+                {{#if ../meta.workHighlights}}
+                {{#if highlights}}
+                <p>
+                <ul>
+                    {{#highlights}}
+                    <li>{{this}}</li>
+                    {{/highlights}}
+                </ul>
+                </p>
+                {{/if}}
+                {{/if}}            </div><!--//item-->
         {{/resume.work}}
     </section><!--//section-->
 {{/if}}
