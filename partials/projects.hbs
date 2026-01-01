@@ -3,6 +3,7 @@
         <h2 class="section-title"><i class="fa fa-archive"></i>{{#if (eq meta.language 'swe')}}Projekt{{else}}Projects{{/if}}</h2>
         
         {{#resume.projects}}
+            {{#if (isAfterDate endDate ../meta.startDate)}}
             <div class="item">
                 <div class="meta">
                     <div class="upper-row">
@@ -40,6 +41,7 @@
                 {{/if}}
                 {{/if}}
             </div><!--//item-->
+            {{/if}}
         {{/resume.projects}}
     </section><!--//section-->
 {{/if}}

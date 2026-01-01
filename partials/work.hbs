@@ -3,6 +3,7 @@
         <h2 class="section-title"><i class="fa fa-briefcase"></i>{{#if (eq meta.language 'swe')}}Arbetserfarenhet{{else}}Work Experience{{/if}}</h2>
 
         {{#resume.work}}
+            {{#if (isAfterDate endDate ../meta.startDate)}}
             <div class="item">
                 <div class="meta">
                     <div class="upper-row">
@@ -39,6 +40,7 @@
                 </p>
                 {{/if}}
                 {{/if}}            </div><!--//item-->
+            {{/if}}
         {{/resume.work}}
     </section><!--//section-->
 {{/if}}

@@ -91,7 +91,8 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
     "workLevel": "description",    // Valid values: "summary", "none" or "description", defaults to "summary"
     "projectLevel": "description", // Valid values: "summary", "none" or "description", defaults to "summary"
     "projectHighlights": true,     // Boolean, show highlights list in projects, defaults to false
-    "workHighlights": true         // Boolean, show highlights list in work, defaults to false
+    "workHighlights": true,        // Boolean, show highlights list in work, defaults to false
+    "startDate": "2020-01-01"      // ISO date string, filters out items with endDate before this date
 
   }
 }
@@ -123,6 +124,11 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
   - `"summary"` - Uses `summary` field
   - `"description"` (default) - Uses `description` field
   - `"none"` - Hides detail section entirely
+- `projectHighlights`: Show highlights list in projects (boolean, defaults to false)
+- `workHighlights`: Show highlights list in work (boolean, defaults to false)
+- `startDate`: Filters work, projects, and certificates by completion date (ISO date string)
+  - Only shows items with `endDate` (or `date` for certificates) >= `startDate`
+  - When null/undefined (default), all items are shown
 
 ## File Structure
 ```

@@ -2,6 +2,7 @@
     <div class="education-container container-block">
         <h2 class="container-block-title">{{#if (eq meta.language 'swe')}}Certifikat{{else}}Certificates{{/if}}</h2>
         {{#resume.certificates}}
+            {{#if (isAfterDate date ../meta.startDate)}}
             {{#if (eq ../meta.certificateRank 0)}}
             <div class="item">
                 <h4 class="degree">{{name}}</h4>
@@ -15,6 +16,7 @@
                 <div class="time">{{year date}}</div>
             </div><!--//item-->
             {{/if}}{{/if}}
+            {{/if}}
         {{/resume.certificates}}
     </div><!--//education-container-->
 {{/if}}

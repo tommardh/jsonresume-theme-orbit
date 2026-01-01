@@ -83,6 +83,12 @@ Handlebars.registerHelper('gte', function(a, b) {
 	return a >= b;
 });
 
+Handlebars.registerHelper('isAfterDate', function(dateStr, filterDateStr) {
+	if (!filterDateStr) return true;
+	if (!dateStr) return false;
+	return new Date(dateStr) >= new Date(filterDateStr);
+});
+
 // Resume.json used to have website property in some entries.  This has been renamed to url.
 // However the demo data still uses the website property so we will also support the "wrong" property name.
 // Fix the resume object to use url property
@@ -169,7 +175,8 @@ function render(resume) {
 			workLevel: resume.meta?.workLevel || 'summary',
 		projectLevel: resume.meta?.projectLevel || 'description',
 		projectHighlights: resume.meta?.projectHighlights || false,
-		workHighlights: resume.meta?.workHighlights || false
+		workHighlights: resume.meta?.workHighlights || false,
+		startDate: resume.meta?.startDate || null
 		}
 	});
 }
