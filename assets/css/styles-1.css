@@ -99,7 +99,7 @@ ul {
   vertical-align: middle;
 }
 .sidebar-wrapper .contact-list li {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 .sidebar-wrapper .contact-list li:last-child {
   margin-bottom: 0;
@@ -279,6 +279,20 @@ ul {
 }
 .consultant-profile-section .company-details {
   flex: 1;
+}
+.consultant-profile-section .company-details .contact-list .fa {
+  margin-right: 5px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.consultant-profile-section .company-details .contact-list li {
+  margin-bottom: 5px;
+}
+.consultant-profile-section .company-details .contact-list li:last-child {
+  margin-bottom: 0;
+}
+.consultant-profile-section .company-details .contact-list .email .fa {
+  font-size: 14px;
 }
 .consultant-profile-section .company-name {
   margin-top: 0;
