@@ -176,7 +176,8 @@ function render(resume) {
 		projectLevel: resume.meta?.projectLevel || 'description',
 		projectHighlights: resume.meta?.projectHighlights || false,
 		workHighlights: resume.meta?.workHighlights || false,
-		startDate: resume.meta?.startDate || null
+		startDate: resume.meta?.startDate || null,
+		consultantProfile: resume.meta?.consultantProfile || false
 		}
 	});
 }

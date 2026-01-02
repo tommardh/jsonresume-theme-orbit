@@ -265,6 +265,26 @@ ul {
   height: 12px;
   background: #bf819e;
 }
+.consultant-profile-section .profile-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.consultant-profile-section .company-logo {
+  flex-shrink: 0;
+}
+.consultant-profile-section .company-logo img {
+  width: 168px;
+  height: auto;
+}
+.consultant-profile-section .company-details {
+  flex: 1;
+}
+.consultant-profile-section .company-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
 .footer {
   padding: 30px;
   padding-top: 60px;

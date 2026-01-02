@@ -1,0 +1,27 @@
+{{#if meta.consultantProfile}}
+{{#if resume.company}}
+    <section class="section consultant-profile-section">
+        <h2 class="section-title"><i class="fa fa-building"></i>{{#if (eq meta.language 'swe')}}Konsultprofil{{else}}Consultant Profile{{/if}}</h2>
+        <div class="profile-info">
+            <div class="company-details">
+                {{#if resume.company.name}}
+                <h3 class="company-name">{{resume.company.name}}</h3>
+                {{/if}}
+                <ul class="list-unstyled contact-list">
+                    {{#if resume.company.email}}<li class="email"><i class="fa fa-envelope"></i><a href="mailto:{{resume.company.email}}">{{resume.company.email}}</a></li>{{/if}}
+                    {{#if resume.company.phone}}<li class="phone"><i class="fa fa-phone"></i><a href="tel:{{resume.company.phone}}">{{resume.company.phone}}</a></li>{{/if}}
+                    {{#if resume.company.url}}<li class="website"><i class="fa fa-globe"></i><a href="{{resume.company.url}}" target="_blank">{{displayUrl resume.company.url}}</a></li>{{/if}}
+                    {{#if resume.company.location}}
+                    <li class="location"><i class="fa fa-map-marker"></i>{{resume.company.location}}</li>
+                    {{/if}}
+                </ul>
+            </div>
+            {{#if resume.company.image}}
+            <div class="company-logo">
+                <img src="{{resume.company.image}}" alt="{{resume.company.name}}" />
+            </div>
+            {{/if}}
+        </div>
+    </section><!--//section-->
+{{/if}}
+{{/if}}

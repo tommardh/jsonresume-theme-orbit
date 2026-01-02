@@ -92,7 +92,8 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
     "projectLevel": "description", // Valid values: "summary", "none" or "description", defaults to "summary"
     "projectHighlights": true,     // Boolean, show highlights list in projects, defaults to false
     "workHighlights": true,        // Boolean, show highlights list in work, defaults to false
-    "startDate": "2020-01-01"      // ISO date string, filters out items with endDate before this date
+    "startDate": "2020-01-01",     // ISO date string, filters out items with endDate before this date
+    "consultantProfile": true      // Boolean, show consultant profile section with company info, defaults to false
 
   }
 }
