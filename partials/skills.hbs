@@ -5,15 +5,17 @@
             {{#resume.skills}}
                 <div class="item">
                     <h3 class="level-title">{{name}}</h3>
-                    <div class="level-bar">
-                        <div class="level-bar-inner" data-level="{{skillLevel level}}">
-                        </div>
-                    </div><!--//level-bar-->
-                    {{#if ../meta.skillKeywords}}
-                    {{#if keywords}}
-                    <div class="keywords">{{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>
-                    {{/if}}
-                    {{/if}}
+                    <div class="level-right">
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="{{skillLevel level}}">
+                            </div>
+                        </div><!--//level-bar-->
+                        {{#if ../meta.skillKeywords}}
+                        {{#if keywords}}
+                        <div class="keywords">{{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>
+                        {{/if}}
+                        {{/if}}
+                    </div>
                 </div><!--//item-->
             {{/resume.skills}}
 
