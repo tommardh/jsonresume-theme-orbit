@@ -89,6 +89,29 @@ Handlebars.registerHelper('isAfterDate', function(dateStr, filterDateStr) {
 	return new Date(dateStr) >= new Date(filterDateStr);
 });
 
+Handlebars.registerHelper('groupByCompany', function(workArray, options) {
+	if (!workArray || !Array.isArray(workArray)) return '';
+	
+	const grouped = {};
+	const order = [];
+	
+	workArray.forEach(work => {
+		const companyName = work.name || 'Unknown';
+		if (!grouped[companyName]) {
+			grouped[companyName] = [];
+			order.push(companyName);
+		}
+		grouped[companyName].push(work);
+	});
+	
+	let result = '';
+	order.forEach(companyName => {
+		result += options.fn({ company: companyName, positions: grouped[companyName] });
+	});
+	
+	return result;
+});
+
 // Resume.json used to have website property in some entries.  This has been renamed to url.
 // However the demo data still uses the website property so we will also support the "wrong" property name.
 // Fix the resume object to use url property

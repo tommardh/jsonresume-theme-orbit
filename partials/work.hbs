@@ -2,45 +2,78 @@
     <section class="section experiences-section">
         <h2 class="section-title"><i class="fa fa-briefcase"></i>{{#if (eq meta.language 'swe')}}Arbetserfarenhet{{else}}Work Experience{{/if}}</h2>
 
-        {{#resume.work}}
-            {{#if (isAfterDate endDate ../meta.startDate)}}
-            <div class="item">
-                <div class="meta">
-                    <div class="upper-row">
-                        {{#if (eq ../meta.workFocus 'company')}}
-                        <h3 class="work-header">{{name}}</h3>
-                        {{else}}
-                        <h3 class="work-header">{{position}}</h3>
+        {{#if (eq meta.workFocus 'company')}}
+            {{#groupByCompany resume.work}}
+                <div class="item">
+                    <h3 class="work-header">{{company}}</h3>
+                    {{#positions}}
+                        {{#if (isAfterDate endDate ../../meta.startDate)}}
+                        <div class="position-entry">
+                            <div class="meta">
+                                <div class="upper-row">
+                                    <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{position}}{{#if url}}</a>{{/if}}</div>
+                                    <div class="time">{{#if location}}{{location}}, {{/if}}{{year startDate}} - {{year endDate}}</div>
+                                </div><!--//upper-row-->
+                            </div><!--//meta-->
+                            {{#if (neq ../../meta.workLevel 'none')}}
+                            <div class="details">
+                                {{#if (eq ../../meta.workLevel 'description')}}
+                                {{#markdown}}{{description}}{{/markdown}}
+                                {{else}}
+                                {{#markdown}}{{summary}}{{/markdown}}
+                                {{/if}}
+                            </div><!--//details-->
+                            {{/if}}
+                            {{#if ../../meta.workHighlights}}
+                            {{#if highlights}}
+                            <p>
+                            <ul>
+                                {{#highlights}}
+                                <li>{{this}}</li>
+                                {{/highlights}}
+                            </ul>
+                            </p>
+                            {{/if}}
+                            {{/if}}
+                        </div><!--//position-entry-->
                         {{/if}}
-                        <div class="time">{{#if location}}{{location}}, {{/if}}{{year startDate}} - {{year endDate}}</div>
-                    </div><!--//upper-row-->
-                    {{#if (eq ../meta.workFocus 'company')}}
-                    <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{position}}{{#if url}}</a>{{/if}}</div>
-                    {{else}}
-                    <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{name}}{{#if url}}</a>{{/if}}</div>
+                    {{/positions}}
+                </div><!--//item-->
+            {{/groupByCompany}}
+        {{else}}
+            {{#resume.work}}
+                {{#if (isAfterDate endDate ../meta.startDate)}}
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="work-header">{{position}}</h3>
+                            <div class="time">{{#if location}}{{location}}, {{/if}}{{year startDate}} - {{year endDate}}</div>
+                        </div><!--//upper-row-->
+                        <div class="work-sub-header">{{#if url}}<a href="{{url}}" target="_blank">{{/if}}{{name}}{{#if url}}</a>{{/if}}</div>
+                    </div><!--//meta-->
+                    {{#if (neq ../meta.workLevel 'none')}}
+                    <div class="details">
+                        {{#if (eq ../meta.workLevel 'description')}}
+                        {{#markdown}}{{description}}{{/markdown}}
+                        {{else}}
+                        {{#markdown}}{{summary}}{{/markdown}}
+                        {{/if}}
+                    </div><!--//details-->
                     {{/if}}
-                </div><!--//meta-->
-                 {{#if (neq ../meta.workLevel 'none')}}
-                <div class="details">
-                    {{#if (eq ../meta.workLevel 'description')}}
-                    {{#markdown}}{{description}}{{/markdown}}
-                    {{else}}
-                    {{#markdown}}{{summary}}{{/markdown}}
+                    {{#if ../meta.workHighlights}}
+                    {{#if highlights}}
+                    <p>
+                    <ul>
+                        {{#highlights}}
+                        <li>{{this}}</li>
+                        {{/highlights}}
+                    </ul>
+                    </p>
                     {{/if}}
-                </div><!--//details-->
+                    {{/if}}
+                </div><!--//item-->
                 {{/if}}
-                {{#if ../meta.workHighlights}}
-                {{#if highlights}}
-                <p>
-                <ul>
-                    {{#highlights}}
-                    <li>{{this}}</li>
-                    {{/highlights}}
-                </ul>
-                </p>
-                {{/if}}
-                {{/if}}            </div><!--//item-->
-            {{/if}}
-        {{/resume.work}}
+            {{/resume.work}}
+        {{/if}}
     </section><!--//section-->
 {{/if}}
