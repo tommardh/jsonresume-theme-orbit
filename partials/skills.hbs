@@ -9,6 +9,11 @@
                         <div class="level-bar-inner" data-level="{{skillLevel level}}">
                         </div>
                     </div><!--//level-bar-->
+                    {{#if ../meta.skillKeywords}}
+                    {{#if keywords}}
+                    <div class="keywords">{{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>
+                    {{/if}}
+                    {{/if}}
                 </div><!--//item-->
             {{/resume.skills}}
 

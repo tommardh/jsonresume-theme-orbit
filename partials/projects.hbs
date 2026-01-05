@@ -40,6 +40,11 @@
                 </p>
                 {{/if}}
                 {{/if}}
+                {{#if ../meta.projectKeywords}}
+                {{#if keywords}}
+                <div class="keywords">{{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>
+                {{/if}}
+                {{/if}}
             </div><!--//item-->
             {{/if}}
         {{/resume.projects}}

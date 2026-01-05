@@ -94,6 +94,8 @@ Visual regression testing via Percy.io (see [tests/percy.js](tests/percy.js)):
     "workHighlights": true,        // Boolean, show highlights list in work, defaults to false
     "startDate": "2020-01-01",     // ISO date string, filters out items with endDate before this date
     "consultantProfile": true      // Boolean, show consultant profile section with company info, defaults to false
+    "skillKeywords": true,         // Boolean, show keywords in skills section, defaults to false
+    "projectKeywords": true        // Boolean, show keywords in projects section, defaults to false
 
   }
 }

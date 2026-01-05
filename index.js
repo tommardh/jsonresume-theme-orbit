@@ -177,7 +177,9 @@ function render(resume) {
 		projectHighlights: resume.meta?.projectHighlights || false,
 		workHighlights: resume.meta?.workHighlights || false,
 		startDate: resume.meta?.startDate || null,
-		consultantProfile: resume.meta?.consultantProfile || false
+		consultantProfile: resume.meta?.consultantProfile || false,
+		skillKeywords: resume.meta?.skillKeywords || false,
+		projectKeywords: resume.meta?.projectKeywords || false
 		}
 	});
 }
