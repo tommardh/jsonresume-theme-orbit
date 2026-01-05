@@ -85,7 +85,7 @@ Handlebars.registerHelper('gte', function(a, b) {
 
 Handlebars.registerHelper('isAfterDate', function(dateStr, filterDateStr) {
 	if (!filterDateStr) return true;
-	if (!dateStr) return false;
+	if (!dateStr) return true; // No endDate means ongoing, always include
 	return new Date(dateStr) >= new Date(filterDateStr);
 });
 
