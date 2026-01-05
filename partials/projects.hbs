@@ -42,7 +42,7 @@
                 {{/if}}
                 {{#if ../meta.projectKeywords}}
                 {{#if keywords}}
-                <div class="keywords">{{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>
+                <div class="keywords"><span class="kw-label">{{#if (eq ../meta.language 'swe')}}Nyckelord:{{else}}Keywords:{{/if}}</span>{{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>
                 {{/if}}
                 {{/if}}
             </div><!--//item-->

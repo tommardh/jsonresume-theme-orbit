@@ -248,6 +248,19 @@ ul {
 .main-wrapper .projects-section .item {
   margin-bottom: 15px;
 }
+.main-wrapper .projects-section .keywords {
+  font-style: italic;
+  font-size: 12px;
+  color: #97AAC3;
+  margin-top: 8px;
+  display: block;
+  word-break: break-word;
+}
+.main-wrapper .projects-section .keywords .kw-label {
+  font-style: normal;
+  margin-right: 6px;
+  color: #3F4650;
+}
 .skillset .item {
   margin-bottom: 15px;
   overflow: hidden;
