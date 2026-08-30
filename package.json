@@ -13,7 +13,8 @@
   },
   "homepage": "https://github.com/XuluWarrior/jsonresume-theme-orbit",
   "scripts": {
-    "serve": "resume serve --theme . --resume=example-resume.json",
+    "serve": "resume serve --theme .",
+    "serve-example": "resume serve --theme . --resume=example-resume.json",
     "build:example": "resume export example-resume.html --theme . --resume=example-resume.json --force",
     "build:styles:1": "lessc assets/less/default/styles.less assets/css/styles-1.css",
     "build:styles:2": "lessc assets/less/theme-2/styles.less assets/css/styles-2.css",
