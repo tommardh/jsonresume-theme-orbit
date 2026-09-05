@@ -16,6 +16,7 @@
     "serve": "resume serve --theme .",
     "serve-example": "resume serve --theme . --resume=example-resume.json",
     "build:example": "resume export example-resume.html --theme . --resume=example-resume.json --force",
+    "build:pdf": "node scripts/build-pdf.js",
     "build:styles:1": "lessc assets/less/default/styles.less assets/css/styles-1.css",
     "build:styles:2": "lessc assets/less/theme-2/styles.less assets/css/styles-2.css",
     "build:styles:3": "lessc assets/less/theme-3/styles.less assets/css/styles-3.css",

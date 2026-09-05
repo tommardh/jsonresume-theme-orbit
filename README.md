@@ -46,7 +46,25 @@ npm run serve -- --resume="/path/to/my resume.json"
 
 If your file is named `resume.json` in the project root, simply run `npm run serve`. That filename is ignored by Git; other filenames, including `my-resume.json`, are not automatically ignored.
 
+For a profile photo or company logo, place your image files in `public/` and follow [Using images from the public folder](#using-images-from-the-public-folder).
+
 ### 4. Export your resume
+
+To export `resume.json` to `resume.pdf` in the project root, run:
+
+```sh
+npm run build:pdf
+```
+
+This overwrites an existing `resume.pdf` and uses the local theme.
+
+The script automatically embeds local images from `basics.image` and `company.image`, including files in `public/`. See [Using images from the public folder](#using-images-from-the-public-folder) for paths and examples.
+
+On macOS, the script automatically uses Google Chrome from `/Applications` or `~/Applications` when installed. Otherwise, it uses Puppeteer's default browser. To choose a browser explicitly, set [Puppeteer's `PUPPETEER_EXECUTABLE_PATH`](https://pptr.dev/api/puppeteer.configuration):
+
+```sh
+PUPPETEER_EXECUTABLE_PATH="/path/to/chrome" npm run build:pdf
+```
 
 Run these commands from the project root:
 
@@ -59,6 +77,81 @@ Add `--force` to overwrite an existing output file. For PDF, you can also open t
 
 The exported HTML embeds the theme's CSS and JavaScript, but still loads fonts, framework assets, and any remote images from the internet.
 
+## Using images from the public folder
+
+### 1. Put the images in `public/`
+
+Create `public/` in the project root if it does not exist, then copy your profile photo and company logo into it. For example:
+
+```text
+jsonresume-theme-orbit/
+├── package.json
+├── resume.json
+└── public/
+    ├── profile.png
+    └── company-logo.jpeg
+```
+
+`public/` is ignored by Git, so these files are not committed automatically. Keep a copy of your images when moving the resume to another machine.
+
+### 2. Reference the images in `resume.json`
+
+Merge these fields into your existing resume, keeping your other information:
+
+```json
+{
+  "basics": {
+    "name": "Alex Example",
+    "image": "./profile.png"
+  },
+  "company": {
+    "name": "Example Consulting AB",
+    "image": "./company-logo.jpeg"
+  },
+  "meta": {
+    "consultantProfile": true
+  }
+}
+```
+
+Use paths **relative to `public/`**, such as `"./profile.png"`, without the `public/` prefix. The preview serves that folder as its root, so `"./public/profile.png"` would look for another `public` folder inside it. The PDF script also searches `public/`, allowing the same JSON paths to work in both outputs.
+
+| File in the project | Value in `resume.json` |
+| --- | --- |
+| `public/profile.png` | `"./profile.png"` |
+| `public/company-logo.jpeg` | `"./company-logo.jpeg"` |
+| `public/images/profile.png` | `"./images/profile.png"` |
+
+`basics.image` is your profile photo. `company.image` is the company logo and is displayed only when `meta.consultantProfile` is `true`. If you only want a profile photo, omit `company` and the `consultantProfile` setting.
+
+### 3. Preview and export
+
+Preview `resume.json` from the project root:
+
+```sh
+npm run serve
+```
+
+To generate a PDF with the local images embedded, run:
+
+```sh
+npm run build:pdf
+```
+
+Use this script for PDFs with local images. Direct `resume export resume.pdf ...` does not perform the image embedding step. The PDF script leaves your original JSON unchanged.
+
+For relative image paths, PDF export checks these locations in order and uses the first matching file:
+
+1. The directory containing the actual JSON file, following `resume.json` if it is a symlink.
+2. The project root containing `resume.json`.
+3. The project's `public/` folder.
+
+Supported local formats are PNG, JPEG (`.jpg` or `.jpeg`), GIF, WebP, SVG, and AVIF. PDF export also accepts absolute paths and `file:` URLs, but the relative `public/` paths above work for both preview and PDF. HTTP(S) image URLs require network access; existing image data URIs are preserved.
+
+If an image file is missing, PDF export stops and lists the paths it checked. Verify the filename, extension, and capitalization. If only the company logo is missing, check `meta.consultantProfile`.
+
+An HTML export keeps image references rather than embedding the local files. When sharing it, keep the images at the paths relative to the HTML file—for example, place `profile.png` beside an HTML file that references `"./profile.png"`.
+
 ## Package scripts
 
 Run scripts with `npm run <script-name>` from the project root. `npm run` lists all available scripts.
@@ -68,6 +161,7 @@ Run scripts with `npm run <script-name>` from the project root. `npm run` lists 
 | `npm run serve` | Starts the local preview using this checkout as the theme. Uses `resume.json` by default; pass `-- --resume=path/to/file.json` to choose another file. |
 | `npm run serve-example` | Starts the preview with the bundled `example-resume.json`, regardless of your own resume file. |
 | `npm run build:example` | Exports `example-resume.json` to `example-resume.html` in the project root. Includes `--force`, so it overwrites that output if it already exists. |
+| `npm run build:pdf` | Runs `scripts/build-pdf.js` to export `resume.json` to `resume.pdf` using the local theme. Automatically selects installed Chrome on macOS. Includes `--force`, so it overwrites an existing PDF. Requires `resume-cli`. |
 | `npm run build:styles:1` | Compiles `assets/less/default/styles.less` to `assets/css/styles-1.css` (default blue). |
 | `npm run build:styles:2` | Compiles `assets/less/theme-2/styles.less` to `assets/css/styles-2.css` (teal). |
 | `npm run build:styles:3` | Compiles `assets/less/theme-3/styles.less` to `assets/css/styles-3.css` (green). |
@@ -294,6 +388,8 @@ Preview or export again to check the result.
 | Problem | What to check |
 | --- | --- |
 | `resume: command not found` | Install `resume-cli` and ensure npm's global executable directory is on your `PATH`. |
+| PDF export fails with `spawn Unknown system error -88` on macOS | Puppeteer's cached browser may be unable to launch. Use `npm run build:pdf`, which selects installed Google Chrome automatically, or set `PUPPETEER_EXECUTABLE_PATH` to a working Chrome executable. |
+| Local images are missing from the PDF | Use `npm run build:pdf` to embed them; direct `resume export` does not resolve relative image paths. Check that `basics.image` and `company.image` point to existing files. |
 | `lessc: command not found` | Run `npm install` with development dependencies included, then use `npm run build:styles:N`. |
 | The preview shows the wrong resume | Pass an explicit path with `npm run serve -- --resume=my-resume.json`. `serve-example` always uses the bundled example. |
 | Highlights or keywords are missing | Enable the corresponding `meta` switch; they are hidden by default. |
